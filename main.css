@@ -5,3 +5,30 @@
 table, th, td{
     border: 1px solid black;
 }
+
+header{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: skyblue;
+}
+
+form{
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+th{
+    background-color: skyblue;
+}
+
+h2{
+    text-align: center;
+}
+
+html{
+    background-color: oldlace;
+}
