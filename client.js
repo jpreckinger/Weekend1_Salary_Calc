@@ -3,6 +3,7 @@ console.log('Heyyo');
 $('document').ready(onReady);
 
 let employeeArray = [];
+let monthlyTotal = 0;
 
 class Employee{
     constructor(firstName, lastName, idNumber, jobTitle, annualSalary){
@@ -17,6 +18,7 @@ class Employee{
 function onReady(){
     console.log('HeyyO!');
     $('#submit').on('click', clickIt);
+    $('#employeeChart').on('click', '.deleteEmployee', deleteEmployee);
 }
 
 function clickIt(){
@@ -24,6 +26,7 @@ function clickIt(){
     captureEmployeeData();
     displayEmployeeData();
     totalCost();
+    costAlert();
     $('input').val('');
 }
 
@@ -41,20 +44,47 @@ function captureEmployeeData(){
 function displayEmployeeData() {
     $('#employeeChart').empty();
     for ( let employee of employeeArray ){
-        $('#employeeChart').append(`<p>${employee.firstName}</p>`); 
-        $('#employeeChart').append(`<p>${employee.lastName}</p>`);
-        $('#employeeChart').append(`<p>${employee.idNumber}</p>`);
-        $('#employeeChart').append(`<p>${employee.jobTitle}</p>`);
-        $('#employeeChart').append(`<p>${employee.annualSalary}</p>`);
+        $('#employeeChart').append(`<tr><td>${employee.firstName}</td><td>${employee.lastName}</td><td id='>${employee.idNumber}</td><td>${employee.jobTitle}</td><td>${employee.annualSalary}</td><td><button class="deleteEmployee">Delete</button></td></tr>`); 
+        // $('#employeeChart').append(`<td>${employee.lastName}</td>`);
+        // $('#employeeChart').append(`<td>${employee.idNumber}</td>`);
+        // $('#employeeChart').append(`<td>${employee.jobTitle}</td>`);
+        // $('#employeeChart').append(`<td>${employee.annualSalary}</td>`);
+        // $('#employeeChart').append(`<button class="deleteEmployee">Delete</button></tr>`);
     }
 }
 
 function totalCost() {
-    let monthlyTotal = 0;
     $('#totalMonthly').empty();
+    monthlyTotal = 0;
     for ( let salary of employeeArray ){
        monthlyTotal += salary.annualSalary/12;
        console.log(monthlyTotal);
     }
-    $('#totalMonthly').append(monthlyTotal);
+    $('#totalMonthly').append(`<h2>${monthlyTotal}</h2>`);
+}
+
+function costAlert(){
+    if( monthlyTotal > 20000 ){
+        $('#totalMonthly').addClass('red');
+    }
+
+}
+
+// function deleteEmployee(){
+//     console.log('delete me');
+    
+//     $(this).parent().empty()
+// }
+
+function deleteEmployee() {
+    let selectedItem = $(this).parent().text();
+    for (let i=0; i<employeeArray.length; i++){
+
+        // if(selectedItem.includes(employeeArray[i].idNumber)){
+        //     monthlyTotal = monthlyTotal - (employeeArray[i].annualSalary/12);            
+        //     employeeArray.splice(i, 1);
+        //     $(this).parent().empty();
+        //     displayEmployeeData();
+        }
+    }
 }
