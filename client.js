@@ -44,7 +44,7 @@ function captureEmployeeData(){
 function displayEmployeeData() {
     $('#employeeChart').empty();
     for ( let employee of employeeArray ){
-        $('#employeeChart').append(`<tr><td>${employee.firstName}</td><td>${employee.lastName}</td><td id='>${employee.idNumber}</td><td>${employee.jobTitle}</td><td>${employee.annualSalary}</td><td><button class="deleteEmployee">Delete</button></td></tr>`); 
+        $('#employeeChart').append(`<tr><td>${employee.firstName}</td><td>${employee.lastName}</td><td id=idColumn'>${employee.idNumber}</td><td>${employee.jobTitle}</td><td>${employee.annualSalary}</td><td><button class="deleteEmployee">Delete</button></td></tr>`); 
         // $('#employeeChart').append(`<td>${employee.lastName}</td>`);
         // $('#employeeChart').append(`<td>${employee.idNumber}</td>`);
         // $('#employeeChart').append(`<td>${employee.jobTitle}</td>`);
@@ -60,12 +60,15 @@ function totalCost() {
        monthlyTotal += salary.annualSalary/12;
        console.log(monthlyTotal);
     }
-    $('#totalMonthly').append(`<h2>${monthlyTotal}</h2>`);
+    monthlyTotal.toFixed(2);
+    $('#totalMonthly').append(`<h2>Total Monthly: $${monthlyTotal}</h2>`);
 }
 
 function costAlert(){
     if( monthlyTotal > 20000 ){
         $('#totalMonthly').addClass('red');
+    } else {
+        $('#totalMonthly').removeClass('red');
     }
 
 }
@@ -77,14 +80,16 @@ function costAlert(){
 // }
 
 function deleteEmployee() {
-    let selectedItem = $(this).parent().text();
+    let selectedEmployee = $(this).closest('tr').find('td').text();
+    
     for (let i=0; i<employeeArray.length; i++){
 
-        // if(selectedItem.includes(employeeArray[i].idNumber)){
-        //     monthlyTotal = monthlyTotal - (employeeArray[i].annualSalary/12);            
-        //     employeeArray.splice(i, 1);
-        //     $(this).parent().empty();
-        //     displayEmployeeData();
+        if(selectedEmployee.includes(employeeArray[i].idNumber)){            
+            employeeArray.splice([i], 1);
+            $(this).parent().empty();
+            displayEmployeeData();
+            totalCost();
+            costAlert();
         }
     }
 }
