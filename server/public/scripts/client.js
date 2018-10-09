@@ -45,11 +45,6 @@ function displayEmployeeData() {
     $('#employeeChart').empty();
     for ( let employee of employeeArray ){
         $('#employeeChart').append(`<tr><td>${employee.firstName}</td><td>${employee.lastName}</td><td id=idColumn'>${employee.idNumber}</td><td>${employee.jobTitle}</td><td>${employee.annualSalary}</td><td><button class="deleteEmployee">Delete</button></td></tr>`); 
-        // $('#employeeChart').append(`<td>${employee.lastName}</td>`);
-        // $('#employeeChart').append(`<td>${employee.idNumber}</td>`);
-        // $('#employeeChart').append(`<td>${employee.jobTitle}</td>`);
-        // $('#employeeChart').append(`<td>${employee.annualSalary}</td>`);
-        // $('#employeeChart').append(`<button class="deleteEmployee">Delete</button></tr>`);
     }
 }
 
@@ -60,6 +55,7 @@ function totalCost() {
        monthlyTotal += salary.annualSalary/12;
        console.log(monthlyTotal);
     }
+    // monthlyTotal.parseFloat();
     monthlyTotal.toFixed(2);
     $('#totalMonthly').append(`<h2>Total Monthly: $${monthlyTotal}</h2>`);
 }
@@ -72,12 +68,6 @@ function costAlert(){
     }
 
 }
-
-// function deleteEmployee(){
-//     console.log('delete me');
-    
-//     $(this).parent().empty()
-// }
 
 function deleteEmployee() {
     let selectedEmployee = $(this).closest('tr').find('td').text();
