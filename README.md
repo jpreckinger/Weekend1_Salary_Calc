@@ -1,44 +1,41 @@
-# Weekend Challenge 1: Salary Calculator
-Create an application that records employee salaries and adds salaries up to report monthly costs. 
+# Employee Salary Calculator
 
-## Topics Covered
-- JavaScript
-- jQuery - Selectors, append, and event handling
+This is a basic calculator that takes an input and displays all current array items on the DOM. The user can delete items with the delete button. The app also calculates the total monthly salary based on all employees' yearly salaries.
 
-## Assignment
+## Built With
 
-The application should have an input form that collects _employee first name, last name, ID number, job title, annual salary_.
+JavaScript
+jQuery
+HTML5
+CSS3
 
-A 'Submit' button should collect the form information, store the information to calculate monthly costs, append information to the DOM and clear the input fields. Using the stored information, calculate monthly costs and append this to the to DOM. If the total monthly cost exceeds $20,000, add a red background color to the total monthly cost.
+## Getting Started
 
-Create a delete button that removes an employee from the DOM. For Base mode, it does **not** need to remove that Employee's salary from the reported total.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Files Provided
-No files have been provided. Fork and clone this repository or create a new GitHub repository to get started. Make sure to commit regularily!
+### Installing
 
-### Wireframe
+Steps to get the development environment running.
 
-![Wireframe](salary-calc-wireframe.png)
+1. Download this project.
+2. `npm start`
 
-## Stretch Mode
 
-Create an `Employee` class to store the information about each new employee in an Array.
+### Completed Features
 
-Add styling or extra functionality that fits with the theme of this assignment.
+- [x] Adding employees to the DOM
+- [x] Deleting Employees
+- [x] Calculating monthly total
 
-Once the employee is deleted, update the total spend on salaries account for this employee's removal. This will require that the logic knows which element was removed. You will need to use `.text()` as a getter or look into jQuery's `.data()` function. This is tricky! 
+### Next Steps
 
-## Reminder About Modes
+- [ ] Better styling
 
-Above, we introduced the concept of levels of difficulty. "Mode" is how we will typically refer to each level. Below is a brief explanation of
+## Authors
 
-* what to expect when attempting each mode
-* if they are required or not
+* Jonathan Reckinger
 
-Mode | Description
---- | ---
-Base | required
-Stretch | optional, stretches your understanding and may require additional research
 
-## Assignment Submission
-Check in your repo, then turn in your work via the Prime Academy Assignment Application at [http://primeacademy.io](http://primeacademy.io), as usual and don't hesitate to hit up the Slack channel as needed!
+## Acknowledgments
+
+* Starter code from Prime Digital Academy

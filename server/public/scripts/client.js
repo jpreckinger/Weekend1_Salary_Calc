@@ -44,7 +44,10 @@ function captureEmployeeData(){
 function displayEmployeeData() {
     $('#employeeChart').empty();
     for ( let employee of employeeArray ){
-        $('#employeeChart').append(`<tr><td>${employee.firstName}</td><td>${employee.lastName}</td><td id=idColumn'>${employee.idNumber}</td><td>${employee.jobTitle}</td><td>${employee.annualSalary}</td><td><button class="deleteEmployee">Delete</button></td></tr>`); 
+        $('#employeeChart').append(`<tr><td>${employee.firstName}</td>
+        <td>${employee.lastName}</td><td id=idColumn'>${employee.idNumber}</td>
+        <td>${employee.jobTitle}</td><td>${employee.annualSalary}</td>
+        <td><button class="deleteEmployee">Delete</button></td></tr>`); 
     }
 }
 
